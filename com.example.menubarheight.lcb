@@ -1,0 +1,59 @@
+library com.example.menubarheight
+
+use com.livecode.foreign
+use com.livecode.objc
+use com.livecode.engine
+
+metadata title is "MenuBar Height"
+metadata author is "Example"
+metadata version is "1.0.0"
+
+-- Bind to the Objective-C class method +[NSMenu menuBarHeight]
+foreign handler NSMenuMenuBarHeight() returns CDouble \
+    binds to "objc:NSMenu.+menuBarHeight"
+
+foreign handler NSMenuMenuBarVisible() returns CBool \
+    binds to "objc:NSMenu.+menuBarVisible"
+
+/**
+Summary: Returns the height of the macOS menu bar in points.
+
+Returns: A number representing the menu bar height (typically 24).
+
+Description:
+Returns the height of the system menu bar on macOS using
+-[NSMenu menuBarHeight]. Returns 0 on non-Mac platforms.
+
+Example:
+    put MenuBarHeight() into tHeight
+    answer "Menu bar is" && tHeight && "points tall"
+*/
+public unsafe handler MenuBarHeight() returns Number
+    if the operating system is "mac" then
+        return NSMenuMenuBarHeight()
+    end if
+    return 0
+end handler
+
+/**
+Summary: Returns whether the macOS menu bar is currently visible.
+
+Returns: True if the menu bar is visible, false otherwise.
+
+Description:
+Returns the visibility state of the system menu bar on macOS using
++[NSMenu menuBarVisible]. Returns false on non-Mac platforms.
+
+Example:
+    if MenuBarVisible() then
+        answer "Menu bar is visible"
+    end if
+*/
+public unsafe handler MenuBarVisible() returns Boolean
+    if the operating system is "mac" then
+        return NSMenuMenuBarVisible()
+    end if
+    return false
+end handler
+
+end library
