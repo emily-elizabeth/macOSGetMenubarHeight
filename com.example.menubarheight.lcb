@@ -5,7 +5,8 @@ use com.livecode.objc
 use com.livecode.engine
 
 metadata title is "MenuBar Height"
-metadata author is "Example"
+metadata author is "Emily-Elizabeth Howard"
+metadata platform is "mac"
 metadata version is "1.0.0"
 
 -- Bind to the Objective-C class method +[NSMenu menuBarHeight]

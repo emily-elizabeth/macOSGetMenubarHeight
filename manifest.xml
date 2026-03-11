@@ -1,7 +1,7 @@
 <package version="0.0">
   <name>com.example.menubarheight</name>
   <title>MenuBar Height</title>
-  <author>Example</author>
+  <author>Emily-Elizabeth Howard</author>
   <version>1.0.0</version>
   <license>community</license>
   <type>library</type>
@@ -13,6 +13,7 @@
   <requires name="com.livecode.string"/>
   <requires name="com.livecode.type"/>
   <requires name="com.livecode.system"/>
+  <metadata key="platform">mac</metadata>
   <handler name="MenuBarHeight" parameters="" return="number"/>
   <handler name="MenuBarVisible" parameters="" return="boolean"/>
 </package>
