@@ -38,17 +38,38 @@ end if
 
 **Returns:** `Boolean` — `true` if visible, `false` if hidden or on non-Mac platforms.
 
+---
+
+### `SetMenuBarVisible(pVisible)`
+
+Shows or hides the macOS menu bar.
+
+```livecode
+-- Hide the menu bar
+SetMenuBarVisible(false)
+
+-- Show the menu bar
+SetMenuBarVisible(true)
+```
+
+**Parameters:** `pVisible` — `Boolean`  
+**Returns:** nothing
+
+> **Note:** Hiding the menu bar does not enter full-screen mode.
+
 ## Platform Notes
 
-| Handler           | macOS | Windows | Linux |
-|-------------------|-------|---------|-------|
-| `MenuBarHeight()` | ✅    | returns `0` | returns `0` |
-| `MenuBarVisible()`| ✅    | returns `false` | returns `false` |
+| Handler                | macOS | Windows | Linux |
+|------------------------|-------|---------|-------|
+| `MenuBarHeight()`      | ✅    | returns `0` | returns `0` |
+| `MenuBarVisible()`     | ✅    | returns `false` | returns `false` |
+| `SetMenuBarVisible()`  | ✅    | no effect | no effect |
 
 ## Objective-C Bindings
 
-| LCB Handler        | Objective-C                        |
-|--------------------|------------------------------------|
-| `MenuBarHeight()`  | `+[NSMenu menuBarHeight]`          |
-| `MenuBarVisible()` | `+[NSMenu menuBarVisible]`         |
+| LCB Handler             | Objective-C                          |
+|-------------------------|--------------------------------------|
+| `MenuBarHeight()`       | `+[NSMenu menuBarHeight]`            |
+| `MenuBarVisible()`      | `+[NSMenu menuBarVisible]`           |
+| `SetMenuBarVisible()`   | `+[NSMenu setMenuBarVisible:]`       |
 
